@@ -15,10 +15,17 @@
 
         public void Jump()
         {
+            //if the bird is less than the height of the screen (mostly)...
             if(DistanceFromGround <= 530)
             {
                 DistanceFromGround += JumpStrength;
             }
+        }
+
+        public bool IsOnGround()
+        {
+            //return whether the bird position is at or below where the ground starts or not
+            return DistanceFromGround <= 0;
         }
     }
 }

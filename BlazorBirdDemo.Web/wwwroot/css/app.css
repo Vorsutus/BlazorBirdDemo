@@ -14,7 +14,7 @@
 .ground{
     background-color: forestgreen;
     width: 500px;
-    height: 130px; /*this added to the height of the sky = game container height*/
+    height: 150px; /*this added to the height of the sky = game container height*/
     position: absolute;
     top: 580px;
 }

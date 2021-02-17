@@ -7,7 +7,14 @@
         <!--Passing in the Bird Model from the game manager (same Model)-->
         <BirdComponent Model="_gameManager.Bird" />
     </div>
-    <PipeComponent Model="_gameManager.Pipe" />
+
+    @*<PipeComponent Model="_gameManager.Pipe" />*@
+    <!--For each pipe in our collection of pipes...-->
+    @foreach (var pipe in _gameManager.Pipes)
+    {
+        <!--...add another pipe component-->
+        <PipeComponent Model="pipe" />
+    }
     <div class="ground"></div>
 </div>
 
