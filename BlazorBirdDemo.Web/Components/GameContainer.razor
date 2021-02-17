@@ -1,0 +1,41 @@
+﻿<!--this container will hold the game-->
+<!--This div (game container) needs to be "Focus-able" in order to do onkeyup, so we use tabindex="0"-->
+<div class="game-container" tabindex="0" @onclick="_gameManager.StartGame" @onkeyup="HandleKeyUp">
+    <div class="sky">
+        <!--passing the CSS string into the style of the bird div-->
+        <!--<div class="bird" style="_birdCss"></div>-->
+        <!--Passing in the Bird Model from the game manager (same Model)-->
+        <BirdComponent Model="_gameManager.Bird" />
+    </div>
+    <PipeComponent Model="_gameManager.Pipe" />
+    <div class="ground"></div>
+</div>
+
+@code {
+    GameManager _gameManager;
+
+
+    //Set the distance to ground property
+    //string _birdCss => $"bottom: {_gameManager.Bird.DistanceFromGround}px";
+
+    //only executed when the compenent is first loaded up
+    protected override void OnInitialized()
+    {
+        //create a new gameManager
+        _gameManager = new GameManager();
+
+        //when the property changed event is raised (listener for event), this calls StateHasChanged which causes a Blazor re-render on ONLY the things that have changed
+        //_gameManager.PropertyChanged += (o, e) => StateHasChanged(); ***REFACTORED
+        _gameManager.MainLoopCompleted += (o, e) => StateHasChanged();
+    }
+
+    void HandleKeyUp(KeyboardEventArgs e)
+    {
+        //if the keyboard event is the spacebar
+        if(e.Key == " ")
+        {
+            //call the Jump() method in the gameManager
+            _gameManager.Jump();
+        }
+    }
+}

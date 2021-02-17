@@ -1,0 +1,12 @@
+﻿<!--passing the CSS string into the style of the bird div-->
+<div class="bird" style="@_birdCss"></div>
+
+@code {
+    //passing in a parameter reference to Model
+    [Parameter]
+    public BirdModel Model { get; set; }
+
+    //Set the distance to ground property
+    //string _birdCss => $"bottom: {_gameManager.Bird.DistanceFromGround}px";
+    string _birdCss => $"bottom: {Model.DistanceFromGround}px";
+}

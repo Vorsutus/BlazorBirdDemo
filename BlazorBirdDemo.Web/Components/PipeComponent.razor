@@ -1,0 +1,10 @@
+﻿<!--passing the CSS string into the style of the pipe div-->
+<div class="pipe" style="@_pipeCss"></div>
+
+@code {
+    //passing in a parameter reference to Model
+    [Parameter]
+    public PipeModel Model { get; set; }
+
+    string _pipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromGround}px";
+}
