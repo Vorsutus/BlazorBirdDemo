@@ -1,37 +1,78 @@
-﻿.game-container {
+﻿.body {
+    display: flex; /*top stack the boarders horizontally instead of vertically*/
+}
+
+.game-container {
     width: 500px;
     height: 730px;
     position: absolute;
+    left: 80px; /*making room on the left for the left boarder*/
+}
+
+.border-left {
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+}
+
+.border-right {
+    left: 580px;
+    width: 80px;
+    height: 790px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+}
+
+.border-top {
+    width: 660px;
+    height: 60px;
+    position: absolute;
+    background-color: white;
+    z-index: +2;
+    top: -60px;
+    left: -80px;
 }
 
 .sky {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
+    background-image: url('../images/fb-game-background.png');
     width: 500px;
     height: 580px;
     position: absolute;
 }
 
-.ground{
-    background-color: forestgreen;
+.ground {
+    /*background-color: forestgreen;*/
+    background-image: url('../images/bottom-background.png');
     width: 500px;
     height: 150px; /*this added to the height of the sky = game container height*/
     position: absolute;
     top: 580px;
+    z-index: +1; /*so the ground layer is above everything else*/
 }
 
 .bird {
-    background-color: yellow;
+    /*background-color: yellow;*/
+    background-image: url('../images/flappy-bird.png');
     width: 60px;
     height: 45px;
     left: 220px; /* makes it appear in the middle of the screen*/
     position: absolute;
 }
 
-.pipe{
-    background-color: black;
+.pipe {
+    /*background-color: black;*/
+    background-image: url('../images/flappybird-pipe.png');
     width: 60px;
     height: 300px;
     position: absolute;
+}
+
+.pipe.top {
+    transform: rotate(180deg); /*both the top and the pipe class are found in the div*/
 }
 
 #blazor-error-ui {

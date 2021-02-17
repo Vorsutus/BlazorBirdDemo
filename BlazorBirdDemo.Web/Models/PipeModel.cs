@@ -8,7 +8,7 @@ namespace BlazorBirdDemo.Web.Models
         public int DistanceFromLeft { get; private set; } = 500; 
 
         //whenever there is a new pipe created, it will be given a random height between 0 and 60 pixels
-        public int DistanceFromGround { get; private set; } = new Random().Next(0, 200);
+        public int DistanceFromGround { get; private set; } = new Random().Next(0, 150);
 
         //distance between the top and bottom pipe
         public int Gap { get; set; } = 130;

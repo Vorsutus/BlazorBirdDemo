@@ -1,5 +1,6 @@
 ﻿<!--passing the CSS string into the style of the pipe div-->
-<div class="pipe" style="@_topPipeCss"></div>
+<div class="pipe top" style="@_topPipeCss"></div>
+
 <div class="pipe" style="@_bottomPipeCss"></div>
 
 @code {
@@ -7,6 +8,6 @@
     [Parameter]
     public PipeModel Model { get; set; }
 
-    string _topPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromGround}px";
-    string _bottomPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromGround + 300 + Model.Gap}px";
+    string _topPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromGround + 300 + Model.Gap}px";
+    string _bottomPipeCss => $"left: {Model.DistanceFromLeft}px; bottom: {Model.DistanceFromGround}px";
 }

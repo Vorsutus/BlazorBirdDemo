@@ -1,6 +1,9 @@
-﻿<!--this container will hold the game-->
+﻿<div class="border-left"/>
+
+<!--this container will hold the game-->
 <!--This div (game container) needs to be "Focus-able" in order to do onkeyup, so we use tabindex="0"-->
 <div class="game-container" tabindex="0" @onclick="_gameManager.StartGame" @onkeyup="HandleKeyUp">
+    <div class="border-top" />
     <div class="sky">
         <!--passing the CSS string into the style of the bird div-->
         <!--<div class="bird" style="_birdCss"></div>-->
@@ -17,6 +20,8 @@
     }
     <div class="ground"></div>
 </div>
+
+<div class="border-right" />
 
 @code {
     GameManager _gameManager;
